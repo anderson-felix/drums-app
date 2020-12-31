@@ -21,11 +21,11 @@ const App = () => {
     userData.setValue(result);
   }, [userData]);
 
+  const Button = () => {};
+
   return (
     <React.Fragment>
-      <Router history={history}>
-        <Routes />
-      </Router>
+      <Router history={history}></Router>
       <Input.TextArea
         className="email"
         placeholder="Digite o seu email"
