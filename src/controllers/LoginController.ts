@@ -7,3 +7,7 @@ export const UserSearch = async (email: string, password: string) => {
     password: password,
   })) as User;
 };
+
+export const UserView = async (email: string, password: string) => {
+  api.get(email);
+};

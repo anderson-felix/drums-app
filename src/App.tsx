@@ -1,13 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
-import FormLogin from "./components/FormLogin";
+import FormLogin from "./pages/FormLogin";
 import HeaderLogo from "./components/Logo";
-import {
-  BackgroundBlack,
-  BackgroundBlue,
-  BackgroundRed,
-} from "./components/BackGrounds";
 
 function Home() {
   return (
