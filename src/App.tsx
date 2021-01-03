@@ -4,8 +4,8 @@ import { Route, Router, Redirect } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { observer } from "mobx-react-lite";
 
-import LoginPage from "./pages/login";
-import { Painel } from "./pages/painel";
+import LoginPage from "./pages/Login";
+import { Painel } from "./pages/Painel";
 
 const Home = observer(() => {
   const history = createBrowserHistory();

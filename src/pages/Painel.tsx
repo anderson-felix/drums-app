@@ -3,8 +3,8 @@ import { observer } from "mobx-react-lite";
 import { useHistory } from "react-router-dom";
 
 import { useGlobalContext } from "../contexts/global";
-import { Logout } from "../controllers/Logout";
-import { ButtonLarge } from "../components/Buttons";
+import { Logout } from "../controllers/logout";
+import { ButtonLarge } from "../components/buttons";
 
 export const Painel = observer(() => {
   const globalContext = useGlobalContext();

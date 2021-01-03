@@ -1,5 +1,5 @@
 import React from "react";
-import { User } from "../interfaces/UserModel";
+import { User } from "../interfaces/userModel";
 import { makeAutoObservable } from "mobx";
 
 class GlobalContext {

@@ -1,5 +1,5 @@
 import { api } from "../utils/api";
-import { User } from "../interfaces/UserModel";
+import { User } from "../interfaces/userModel";
 
 export const UserSearch = async (
   email: string,

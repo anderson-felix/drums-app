@@ -5,10 +5,10 @@ import { useInput, useBoolean } from "react-hanger";
 import { Route, useHistory } from "react-router-dom";
 import { Modal } from "antd";
 
-import { GetLogged } from "../controllers/GetLogged";
+import { GetLogged } from "../controllers/getLogged";
 import HeaderLogo from "../components/Logo";
-import { UserSearch } from "../controllers/LoginController";
-import { ButtonLarge } from "../components/Buttons";
+import { UserSearch } from "../controllers/loginController";
+import { ButtonLarge } from "../components/buttons";
 import { useGlobalContext } from "../contexts/global";
 import RegisterUser from "./RegisterUser";
 

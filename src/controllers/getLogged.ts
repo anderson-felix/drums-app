@@ -1,4 +1,4 @@
-import { User } from "../interfaces/UserModel";
+import { User } from "../interfaces/userModel";
 import { api } from "../utils/api";
 
 export const GetLogged = async () => {

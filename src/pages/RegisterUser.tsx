@@ -1,16 +1,26 @@
 import React from "react";
-import { useInput, useStateful } from "react-hanger";
+import { useInput } from "react-hanger";
 
-import { ButtonLarge } from "../components/Buttons";
-import { Register } from "../interfaces/UserModel";
-import { RegisterController } from "../controllers/RegisterController";
+import { ButtonLarge } from "../components/buttons";
+import { RegisterController } from "../controllers/registerController";
+import { useGlobalContext } from "../contexts/global";
 
-function RegisterUser() {
-  const userData = useStateful<Register | undefined>(undefined);
+const RegisterUser = () => {
+  const globalContext = useGlobalContext();
+
   const email = useInput("");
   const password = useInput("");
   const name = useInput("");
   const birthDate = useInput("");
+
+  const canLogin = React.useCallback(() => {
+    return (
+      email.value.trim().length > 0 &&
+      password.value.trim().length > 0 &&
+      name.value.trim().length > 0 &&
+      birthDate.value.trim().length > 0
+    );
+  }, [email, password, name, birthDate]);
 
   const doRegister = React.useCallback(async () => {
     const data = await RegisterController(
@@ -19,8 +29,8 @@ function RegisterUser() {
       name.value,
       birthDate.value
     );
-    userData.setValue(data);
-  }, [email, password, name, birthDate, userData]);
+    globalContext.userData = data;
+  }, [email, password, name, birthDate, globalContext]);
 
   return (
     <div>
@@ -29,8 +39,8 @@ function RegisterUser() {
           <label htmlFor="exampleInpuEmail1">Email adress</label>
           <input
             type="email"
+            name="email"
             className="form-control"
-            id="exampleInputEmail1"
             value={email.value}
             onChange={email.onChange}
           />
@@ -39,8 +49,8 @@ function RegisterUser() {
           <label htmlFor="exampleInputPassword1">Password</label>
           <input
             type="password"
+            name="password"
             className="form-control"
-            id="exampleInputPassword1"
             value={password.value}
             onChange={password.onChange}
           />
@@ -48,9 +58,8 @@ function RegisterUser() {
         <div className="form-group">
           <label htmlFor="exampleInputName">Name</label>
           <input
-            type="name"
+            name="name"
             className="form-control"
-            id="exampleInputName1"
             value={name.value}
             onChange={name.onChange}
           />
@@ -58,17 +67,18 @@ function RegisterUser() {
         <div className="form-group">
           <label htmlFor="exampleInputBirthDate">Birth Date</label>
           <input
-            type="birthDate"
             className="form-control"
-            id="exampleInputName1"
+            name="birthDate"
             value={birthDate.value}
             onChange={birthDate.onChange}
           />
         </div>
-        <ButtonLarge onClick={doRegister}>Cadastrar</ButtonLarge>
+        <ButtonLarge disabled={!canLogin()} onClick={doRegister}>
+          Cadastrar
+        </ButtonLarge>
       </React.Fragment>
     </div>
   );
-}
+};
 
 export default RegisterUser;
