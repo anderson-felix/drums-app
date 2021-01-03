@@ -1,27 +1,23 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import { Route, Router, Redirect } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import { observer } from "mobx-react-lite";
 
-import FormLogin from "./pages/FormLogin";
-import HeaderLogo from "./components/Logo";
+import LoginPage from "./pages/login";
+import { Painel } from "./pages/painel";
 
-function Home() {
+const Home = observer(() => {
+  const history = createBrowserHistory();
+
   return (
-    <div>
-      <div className="row flex-1">
-        <div className="col">
-          <HeaderLogo />
-        </div>
-
-        <div className="col-sm-6 col-md-4">
-          <FormLogin />
-        </div>
-      </div>
-    </div>
+    <Router history={history}>
+      <Route path={"/login"} exact component={LoginPage} />
+      <Route path={"/painel"} exact component={Painel} />
+      <Route path={"/cadastro"} exact component={LoginPage} />
+      <Route path={"/"} exact render={() => <Redirect to={"/login"} />} />
+    </Router>
   );
-}
-
-function button() {
-  return <button>Hello react</button>;
-}
+});
 
 export default Home;
