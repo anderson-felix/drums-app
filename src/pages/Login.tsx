@@ -59,7 +59,7 @@ const Login = observer(() => {
   }, [globalContext, canLogin, email, password, keepLogged]);
 
   React.useEffect(() => {
-    if (globalContext.userData) history.push("/painel");
+    if (globalContext.userData) history.push("/homepage");
   }, [globalContext.userData, history]);
 
   return (

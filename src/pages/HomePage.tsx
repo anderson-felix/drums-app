@@ -6,8 +6,9 @@ import { useGlobalContext } from "../contexts/global";
 import { Logout } from "../controllers/logout";
 import { ButtonLarge } from "../components/buttons";
 
-export const Painel = observer(() => {
+export const HomePage = observer(() => {
   const globalContext = useGlobalContext();
+
   const history = useHistory();
 
   const doLogout = React.useCallback(async () => {
@@ -22,7 +23,7 @@ export const Painel = observer(() => {
 
   return (
     <React.Fragment>
-      <div>Painel aqui</div>
+      <div>Aqui vai ficar a HomePage</div>
       <ButtonLarge onClick={doLogout}>Sair</ButtonLarge>
     </React.Fragment>
   );
