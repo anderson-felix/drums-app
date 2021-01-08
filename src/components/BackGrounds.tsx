@@ -3,9 +3,10 @@ import styled from "styled-components";
 
 export const BackgroundBlack = styled.body`
   border: 1px solid #000;
-  background-color: black;
-  width: 200px;
-  height: 20px;
+  border-radius: 6px;
+  background: linear-gradient(#0b525b, #272640);
+  width: 100%;
+  height: 10vh;
   margin-top: 0px;
 `;
 export const BackgroundRed = styled.body`

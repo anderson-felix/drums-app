@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { useGlobalContext } from "../contexts/global";
 import { Logout } from "../controllers/logout";
 import { ButtonLarge } from "../components/buttons";
+import Player from "../components/Player";
 
 export const HomePage = observer(() => {
   const globalContext = useGlobalContext();
@@ -23,7 +24,8 @@ export const HomePage = observer(() => {
 
   return (
     <React.Fragment>
-      <div>Aqui vai ficar a HomePage</div>
+      <Player />
+
       <ButtonLarge onClick={doLogout}>Sair</ButtonLarge>
     </React.Fragment>
   );
