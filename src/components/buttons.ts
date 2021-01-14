@@ -9,17 +9,17 @@ export const Button = styled.button.attrs(() => ({
   className: "btn",
   type: "submit",
 }))<Props>`
-  border-color: orange;
+  border-color: black;
   border-width: 1px;
   ${({ simple }) => {
     if (simple) {
       return "background-color: transparent;";
     } else {
-      return "background-color: orange;";
+      return "background-color: #6e749c;";
     }
     // simple ? "background-color: transparent;" : "background-color: orange;";
   }}
-  ${({ disable }) => (disable ? "opacity: .5;" : "")}
+  ${({ disable }) => (disable ? "opacity: .5;" : "")};
 `;
 
 export const ButtonLarge = styled(Button)`
