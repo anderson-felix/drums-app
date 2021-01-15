@@ -3,29 +3,33 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import styled from "styled-components";
 
-import sky from "../images/sky.jpg";
+import headphone from "../images/Headphone.jpg";
 
-export const SkyBackground = styled.img.attrs({
-  src: sky,
+export const Headphone = styled.img.attrs({
+  src: headphone,
 })`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 10vh;
+  height: 100%;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
+  padding: 1px;
 `;
 
 export const LayoutDiv = styled.div`
-  height: 250px;
+  height: 300px;
   display: grid;
   padding: 5px;
-  grid-template-rows: 20% 60% 20%;
+  grid-template-rows: 23% 60% 17%;
   background-color: black;
 
   & .header {
     background-color: red;
+    display: flex;
+    text-align: center;
+  }
+  & .menu {
   }
   & .content {
     background-color: blue;
@@ -33,12 +37,15 @@ export const LayoutDiv = styled.div`
   & .sider {
     background-color: yellow;
   }
-  & .footer {
+  & .footer-content {
+    display: flex;
+    align-content: end;
     background-color: green;
   }
-`;
-export const PlayerDiv = styled.div`
-  & .play-button {
-    padding: 100px; // parei aqui
+  & .btn {
+    color: white;
+    position: relative;
+    display: flex;
+    margin: 5px 28px 10px;
   }
 `;

@@ -2,17 +2,18 @@ import React from "react";
 import { useArray, useBoolean } from "react-hanger";
 import ReactPlayer from "react-player";
 import "bootstrap/dist/css/bootstrap.css";
-import { Layout } from "antd";
+import { Layout, Menu } from "antd";
+import { PlayCircleFilled, PauseCircleFilled } from "@ant-design/icons";
 
 import { Track } from "../interfaces/track";
-import { SkyBackground, LayoutDiv, PlayerDiv } from "./BackGrounds";
+import { LayoutDiv, Headphone } from "./BackGrounds";
 import { Button } from "../components/buttons";
 
 export default function Player() {
   const playing = useBoolean(false);
   const tracks = useArray<Track>([
     {
-      title: "Rumble",
+      title: "Rumble - Sick Mundus",
       duration: 1,
       price: 1,
       urlS3: "https://soundcloud.com/darksiderecords000/rumble-preview",
@@ -20,64 +21,69 @@ export default function Player() {
       image: "any",
     },
     {
-      title: "Dark",
+      title: "Little Star - Kasatka",
       duration: 1,
       price: 1,
-      urlS3: "https://soundcloud.com/darksiderecords000/rumble-preview",
+      urlS3: "https://soundcloud.com/kasatka/little-star",
       disponible: true,
       image: "any",
     },
     {
-      title: "Forest",
+      title: "Granjurema - Elowinz",
       duration: 1,
       price: 1,
-      urlS3: "https://soundcloud.com/darksiderecords000/rumble-preview",
+      urlS3: "https://soundcloud.com/p-30/elowinz-granjurema",
       disponible: true,
       image: "any",
     },
     {
-      title: "Hitech",
+      title: "Behing Language - Awaken Dreams",
       duration: 1,
       price: 1,
-      urlS3: "https://soundcloud.com/darksiderecords000/rumble-preview",
+      urlS3:
+        "https://soundcloud.com/kokoblokoproject/behind-language-kokobloko-insector-awaken-dreams",
       disponible: true,
       image: "any",
     },
   ]);
 
-  const { Header, Footer, Sider, Content } = Layout;
+  const { Header, Sider, Content } = Layout;
 
   return (
     <div className="App">
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
+        <Menu.Item key="1"> 1 </Menu.Item>
+        <Menu.Item key="2"> 2 </Menu.Item>
+        <Menu.Item key="3"> 3 </Menu.Item>
+      </Menu>
       {tracks.value.map((track) => (
         <React.Fragment>
-          {track.title}
           <LayoutDiv>
-            <Header className="header">Header</Header>
+            <Header className="header">{track.title}</Header>
             <Layout className="layout-middle">
-              <Sider className="sider">Sider</Sider>
+              <Sider className="sider">
+                <Headphone />
+              </Sider>
               <Content className="content">Content</Content>
+              <div className="playerDiv">
+                <ReactPlayer
+                  style={{ display: `none` }}
+                  onProgress={console.log}
+                  playing={playing.value}
+                  height={`auto`}
+                  url={track.urlS3}
+                />
+              </div>
             </Layout>
-            <Footer className="footer">Footer</Footer>
+            <Content className="footer-content">
+              <Button onClick={playing.setTrue}>
+                <PlayCircleFilled />
+              </Button>
+              <Button onClick={playing.setFalse}>
+                <PauseCircleFilled />
+              </Button>
+            </Content>{" "}
           </LayoutDiv>
-          <SkyBackground />
-          <PlayerDiv>
-            <div className="playerDiv">
-              <ReactPlayer
-                style={{ display: `none` }}
-                onProgress={console.log}
-                playing={playing.value}
-                height={`auto`}
-                url={track.urlS3}
-              />
-              <Button onClick={playing.setTrue} id="play-button">
-                Play
-              </Button>
-              <Button onClick={playing.setFalse} id="pause-button">
-                Pause
-              </Button>
-            </div>
-          </PlayerDiv>
         </React.Fragment>
       ))}
     </div>
