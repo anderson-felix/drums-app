@@ -2,11 +2,12 @@ import React from "react";
 import { useArray, useBoolean } from "react-hanger";
 import ReactPlayer from "react-player";
 import "bootstrap/dist/css/bootstrap.css";
-import { Layout, Menu } from "antd";
+import { Layout } from "antd";
 import { PlayCircleFilled, PauseCircleFilled } from "@ant-design/icons";
 
 import { Track } from "../interfaces/track";
-import { LayoutDiv, Headphone } from "./BackGrounds";
+import { LayoutDiv } from "./BackGrounds";
+import { MusicImage } from "./MusicImage";
 import { Button } from "../components/buttons";
 
 export default function Player() {
@@ -51,18 +52,13 @@ export default function Player() {
 
   return (
     <div className="App">
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
-        <Menu.Item key="1"> 1 </Menu.Item>
-        <Menu.Item key="2"> 2 </Menu.Item>
-        <Menu.Item key="3"> 3 </Menu.Item>
-      </Menu>
       {tracks.value.map((track) => (
         <React.Fragment>
           <LayoutDiv>
             <Header className="header">{track.title}</Header>
             <Layout className="layout-middle">
               <Sider className="sider">
-                <Headphone />
+                <MusicImage />
               </Sider>
               <Content className="content">Content</Content>
               <div className="playerDiv">
