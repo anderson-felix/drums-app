@@ -5,9 +5,17 @@ import {
   UploadOutlined,
   UserOutlined,
   LogoutOutlined,
-  MailOutlined,
+  InfoCircleOutlined,
   AppstoreOutlined,
   SettingOutlined,
+  ExperimentOutlined,
+  FireOutlined,
+  HeartOutlined,
+  ToolOutlined,
+  DollarCircleOutlined,
+  ReadOutlined,
+  PartitionOutlined,
+  SlidersOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 
@@ -61,13 +69,13 @@ export const HomePage = observer(() => {
             mode="inline"
           >
             <SubMenu key="sub1" icon={<UserOutlined />} title="Perfil">
-              <Menu.Item key="1" icon={<UserOutlined />}>
+              <Menu.Item key="1" icon={<FireOutlined />}>
                 Minhas musicas
               </Menu.Item>
               <Menu.Item key="2" icon={<UploadOutlined />}>
                 Upload de musicas
               </Menu.Item>
-              <Menu.Item key="3" icon={<UserOutlined />}>
+              <Menu.Item key="3" icon={<HeartOutlined />}>
                 Favoritos
               </Menu.Item>
             </SubMenu>
@@ -77,9 +85,13 @@ export const HomePage = observer(() => {
               <Menu.Item key="6">Orgânico</Menu.Item>
               <Menu.Item key="7">Experimental</Menu.Item>
               <Menu.Item key="8">Todos</Menu.Item>
-              <SubMenu key="sub3" title="Samples">
-                <Menu.Item key="9">Analógico</Menu.Item>
-                <Menu.Item key="10">Digital</Menu.Item>
+              <SubMenu key="sub3" title="Samples" icon={<ExperimentOutlined />}>
+                <Menu.Item key="9" icon={<SlidersOutlined />}>
+                  Analógico
+                </Menu.Item>
+                <Menu.Item key="10" icon={<PartitionOutlined />}>
+                  Digital
+                </Menu.Item>
               </SubMenu>
             </SubMenu>
             <SubMenu
@@ -87,16 +99,16 @@ export const HomePage = observer(() => {
               icon={<SettingOutlined />}
               title="Configurações"
             >
-              <Menu.Item key="11" icon={<MailOutlined />}>
+              <Menu.Item key="11" icon={<ToolOutlined />}>
                 Conta
               </Menu.Item>
-              <Menu.Item key="12" icon={<MailOutlined />}>
-                Formas de pagamento
+              <Menu.Item key="12" icon={<DollarCircleOutlined />}>
+                Pagamento
               </Menu.Item>
-              <Menu.Item key="13" icon={<MailOutlined />}>
+              <Menu.Item key="13" icon={<InfoCircleOutlined />}>
                 Ajuda
               </Menu.Item>
-              <Menu.Item key="14" icon={<MailOutlined />}>
+              <Menu.Item key="14" icon={<ReadOutlined />}>
                 Sobre
               </Menu.Item>
             </SubMenu>
