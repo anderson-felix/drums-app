@@ -4,6 +4,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import styled from "styled-components";
 
 export const LayoutDiv = styled.div`
+  @import url("https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap");
+
+  font-family: "Yusei Magic", sans-serif;
   height: 300px;
   display: grid;
   padding: 5px;
